@@ -1,0 +1,25 @@
+{
+  "name": "bubbleq-mcp-server",
+  "version": "1.0.0",
+  "description": "Remote MCP Server for the Bubbleq Intelligence Gateway",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "bubbleq-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.0.0"
+  }
+}
