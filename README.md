@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./cover.svg" alt="Bubbleq 0-UI Cover" width="100%" />
+  <img src="./cover.png" alt="Bubbleq 0-UI Cover" width="100%" />
   <br/><br/>
   <h1>🤖 Bubbleq Agents Workspace</h1>
   <p><strong>The official monorepo for Bubbleq M2M (Machine-to-Machine) SDKs and Tools.</strong></p>
