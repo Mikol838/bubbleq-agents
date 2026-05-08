@@ -14,8 +14,8 @@ setup(
     url="https://github.com/Mikol838/bubbleq-agents",
     py_modules=["bubbleq_sdk", "bubbleq_langchain"],
     install_requires=[
-        "requests>=2.25.1",
-        "pydantic"
+        "requests>=2.25.1,<3.0.0",
+        "pydantic>=2.0.0,<3.0.0"
     ],
     extras_require={
         "test": ["pytest", "responses", "langchain-core"]

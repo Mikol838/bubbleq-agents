@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { BubbleqClient } from './index.js';
+import { BubbleqClient } from '../index.js';
 
 // Mock the global fetch
 const fetchMock = vi.fn();

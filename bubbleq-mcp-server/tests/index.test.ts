@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { BubbleqClient, createMCPServer } from './index.js';
+import { createMCPServer } from '../src/index.js';
+import { BubbleqClient } from 'bubbleq-sdk-ts';
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 
 // Mock global fetch
