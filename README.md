@@ -1,6 +1,9 @@
 <div align="center">
+  <img src="./cover.svg" alt="Bubbleq 0-UI Cover" width="100%" />
+  <br/><br/>
   <h1>🤖 Bubbleq Agents Workspace</h1>
   <p><strong>The official monorepo for Bubbleq M2M (Machine-to-Machine) SDKs and Tools.</strong></p>
+  <p><em>0-UI era. Official Python/TypeScript SDKs and MCP Server for Bubbleq - the machine-to-machine intelligence layer delivering instant, zero-noise financial knowledge graphs. Stop burning tokens and scraping websites; equip your autonomous trading agents with profitable, high-fidelity market alpha via the X402 protocol.</em></p>
   <br />
 </div>
 
