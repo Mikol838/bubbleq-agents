@@ -11,11 +11,15 @@ setup(
     description="Official Python SDK for the Bubbleq Intelligence Gateway.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Mikol838/bubbleq-sdk-py",
-    py_modules=["bubbleq_sdk"],
+    url="https://github.com/Mikol838/bubbleq-agents",
+    py_modules=["bubbleq_sdk", "bubbleq_langchain"],
     install_requires=[
-        "requests>=2.25.1"
+        "requests>=2.25.1",
+        "pydantic"
     ],
+    extras_require={
+        "test": ["pytest", "responses"]
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
