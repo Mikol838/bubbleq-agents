@@ -18,7 +18,7 @@ setup(
         "pydantic"
     ],
     extras_require={
-        "test": ["pytest", "responses"]
+        "test": ["pytest", "responses", "langchain-core"]
     },
     classifiers=[
         "Programming Language :: Python :: 3",
