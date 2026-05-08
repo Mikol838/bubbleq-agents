@@ -23,7 +23,7 @@ class BubbleqTool(BaseTool):
     
     client: Optional[Any] = None
 
-    def __init__(self, base_url: str = "https://api.heyaia.org", payment_token: str = "test_token", **kwargs):
+    def __init__(self, base_url: str = "https://heyaia.org", payment_token: str = "test_token", **kwargs):
         super().__init__(**kwargs)
         # Initialize the Bubbleq Client
         self.client = BubbleqClient(base_url=base_url, payment_token=payment_token)

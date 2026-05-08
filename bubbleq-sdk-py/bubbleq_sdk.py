@@ -7,7 +7,7 @@ class BubbleqClient:
         self.payment_token = payment_token
 
     def analyze(self, query: str, model: Literal['gemini-3.1-pro-preview', 'gemini-3-flash-preview'] = 'gemini-3-flash-preview'):
-        url = f"{self.base_url}/m2m/bubbleq/analyze"
+        url = f"{self.base_url}/bubbleq/api/analyze"
         headers = { "Authorization": f"X402 receipt={self.payment_token}" }
         params = { "query": query, "model": model }
         

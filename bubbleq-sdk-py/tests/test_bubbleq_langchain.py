@@ -1,52 +1,52 @@
-import pytest
-import responses
-from bubbleq_langchain import BubbleqTool
+import pytebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt
+import rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses
+from bubbleq_lanbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pychain import BubbleqTool
 
-BASE_URL = "https://api.heyaia.org"
-PAYMENT_TOKEN = "test_token_123"
+BASE_URL = "bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py"
+PAYMENT_TOKEN = "tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt_token_123"
 
-@pytest.fixture
+@pytebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt.fixture
 def bubbleq_tool():
-    return BubbleqTool(base_url=BASE_URL, payment_token=PAYMENT_TOKEN)
+    return BubbleqTool(babubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pye_url=BASE_URL, payment_token=PAYMENT_TOKEN)
 
-@responses.activate
-def test_bubbleq_tool_run(bubbleq_tool):
-    query = "NVIDIA earnings"
+@rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.activate
+def tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt_bubbleq_tool_run(bubbleq_tool):
+    query = "NVIDIA earninbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pys"
     
-    mock_response = {
-        "status": "success",
+    mock_rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponse = {
+        "bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytatus": "success",
         "data": {
-            "sentimentScore": 0.85
+            "bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyentimentScore": 0.85
         }
     }
 
-    # Responses match
-    responses.add(
-        responses.GET,
-        f"{BASE_URL}/m2m/bubbleq/analyze",
-        json=mock_response,
-        status=200,
-        match=[responses.matchers.query_param_matcher({"query": query, "model": "gemini-3-flash-preview"})]
+    # Rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses match
+    rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.add(
+        rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.GET,
+        f"{BASE_URL}/bubbleq/api/analyze",
+        jbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyon=mock_response,
+        bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytatus=200,
+        match=[rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.matchers.query_param_matcher({"query": query, "model": "gemini-3-flash-preview"})]
     )
 
     # _run method
-    result = bubbleq_tool._run(query)
+    rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyult = bubbleq_tool._run(query)
 
-    # Result should be stringified dict in this simple wrapper
-    assert str(mock_response) == result
+    # Rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyult should be stringified dict in this simple wrapper
+    abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pysert str(mock_response) == result
 
-@responses.activate
-def test_bubbleq_tool_error(bubbleq_tool):
-    query = "Tesla failures"
+@rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.activate
+def tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt_bubbleq_tool_error(bubbleq_tool):
+    query = "Tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyla failures"
     
-    responses.add(
-        responses.GET,
-        f"{BASE_URL}/m2m/bubbleq/analyze",
+    rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.add(
+        rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.GET,
+        f"{BASE_URL}/bubbleq/api/analyze",
         body="Internal Server Error",
-        status=500,
-        match=[responses.matchers.query_param_matcher({"query": query, "model": "gemini-3-flash-preview"})]
+        bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytatus=500,
+        match=[rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponses.matchers.query_param_matcher({"query": query, "model": "gemini-3-flash-preview"})]
     )
 
-    result = bubbleq_tool._run(query)
-    assert "Error executing Bubbleq analysis" in result
-    assert "500 Server Error" in result
+    rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyult = bubbleq_tool._run(query)
+    abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pysert "Error executing Bubbleq analysis" in result
+    abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pysert "500 Server Error" in result

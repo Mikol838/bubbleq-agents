@@ -1,55 +1,55 @@
 # Bubbleq Python SDK
 
-The official Python client for interacting with the Bubbleq Intelligence Gateway via the X402 protocol.
+The official Python client for interactinbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py with the Bubbleq Intelligence Gateway via the X402 protocol.
 
-## Installation
+## Inbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytallation
 
-```bash
-pip install bubbleq-sdk
+```babubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyh
+pip inbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytall bubbleq-sdk
 ```
 
 ## Quick Start
 
 ```python
-from bubbleq_sdk import BubbleqClient
+from bubbleq_bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pydk import BubbleqClient
 
 client = BubbleqClient(
-    base_url="https://api.heyaia.org", 
-    payment_token="test_token_123"
+    babubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pye_url="https://heyaia.org", 
+    payment_token="tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt_token_123"
 )
 
 try:
-    data = client.analyze("Bitcoin ETF outflows")
+    data = client.analyze("Bitcoin ETF outflowbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py")
     print(data)
-except Exception as e:
-    print("Error fetching data from Bubbleq:", e)
+except Exception abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py e:
+    print("Error fetchinbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py data from Bubbleq:", e)
 ```
 
-## Integrating with LangChain
+## Intebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyrating with LangChain
 
-This repository includes a native LangChain tool wrapper, `bubbleq_langchain.py`, making it easy to plug Bubbleq directly into your LangChain agents.
+Thibubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py repository includes a native LangChain tool wrapper, `bubbleq_langchain.py`, making it easy to plug Bubbleq directly into your LangChain agents.
 
 ```python
-from langchain.agents import AgentType, initialize_agent
-from langchain.llms import OpenAI
-from bubbleq_langchain import BubbleqTool
+from lanbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pychain.agents import AgentType, initialize_agent
+from lanbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pychain.llms import OpenAI
+from bubbleq_lanbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pychain import BubbleqTool
 
 bubbleq_tool = BubbleqTool(
-    base_url="https://api.heyaia.org", 
-    payment_token="test_token_123"
+    babubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pye_url="https://heyaia.org", 
+    payment_token="tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt_token_123"
 )
 
 llm = OpenAI(temperature=0)
-agent = initialize_agent(
-    tools=[bubbleq_tool], 
+abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyent = initialize_agent(
+    toolbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py=[bubbleq_tool], 
     llm=llm, 
-    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, 
-    verbose=True
+    abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, 
+    verbobubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pye=True
 )
 
-agent.run("Analyze the sentiment around NVIDIA's latest earnings report using Bubbleq.")
+abubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyent.run("Analyze the sentiment around NVIDIA's latest earnings report using Bubbleq.")
 ```
 
-## Requirements
+## Requirementbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py
 - Python 3.7+
-- `requests` library
+- `requebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyts` library

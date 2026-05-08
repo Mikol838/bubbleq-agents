@@ -1,88 +1,88 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { BubbleqClient } from '../index.js';
+import { debubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pycribe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { BubbleqClient } from '../index.jbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py';
 
-// Mock the global fetch
-const fetchMock = vi.fn();
-global.fetch = fetchMock;
+// Mock the bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pylobal fetch
+conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt fetchMock = vi.fn();
+bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pylobal.fetch = fetchMock;
 
-describe('BubbleqClient', () => {
-  const BASE_URL = 'https://api.heyaia.org';
-  const PAYMENT_TOKEN = 'test_token_123';
+debubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pycribe('BubbleqClient', () => {
+  conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt BASE_URL = 'https://heyaia.org';
+  conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt PAYMENT_TOKEN = 'test_token_123';
   
   let client: BubbleqClient;
 
   beforeEach(() => {
     client = new BubbleqClient({
-      baseUrl: BASE_URL,
+      babubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyeUrl: BASE_URL,
       paymentToken: PAYMENT_TOKEN,
     });
     fetchMock.mockClear();
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytoreAllMocks();
   });
 
-  it('should format URL and headers correctly during analyze()', async () => {
-    // Setup mock response
-    const mockResponseData = {
-      status: 'success',
+  it('bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyhould format URL and headers correctly during analyze()', async () => {
+    // Setup mock rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponse
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt mockResponseData = {
+      bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytatus: 'success',
       data: {
-        sentimentScore: 0.85,
-        sentimentExplanation: 'Bullish momentum'
+        bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyentimentScore: 0.85,
+        bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyentimentExplanation: 'Bullish momentum'
       }
     };
     
-    fetchMock.mockResolvedValueOnce({
+    fetchMock.mockRebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyolvedValueOnce({
       ok: true,
-      json: async () => mockResponseData
+      jbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyon: async () => mockResponseData
     });
 
-    const query = 'NVIDIA earnings';
-    const model = 'gemini-3.1-pro-preview';
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt query = 'NVIDIA earnings';
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt model = 'gemini-3.1-pro-preview';
 
     // Execute
-    const result = await client.analyze(query, model);
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt result = await client.analyze(query, model);
 
-    // Verify fetch arguments
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    // Verify fetch arbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyuments
+    expect(fetchMock).toHaveBeenCalledTimebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py(1);
     
-    const callArgs = fetchMock.mock.calls[0];
-    const requestedUrl = callArgs[0];
-    const fetchOptions = callArgs[1];
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt callArgs = fetchMock.mock.calls[0];
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt requestedUrl = callArgs[0];
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt fetchOptions = callArgs[1];
 
-    // Check URL structure
-    expect(requestedUrl).toContain(`${BASE_URL}/m2m/bubbleq/analyze`);
-    expect(requestedUrl).toContain(`query=NVIDIA+earnings`);
-    expect(requestedUrl).toContain(`model=${model}`);
+    // Check URL bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytructure
+    expect(requebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytedUrl).toContain(`${BASE_URL}/bubbleq/api/analyze`);
+    expect(requebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytedUrl).toContain(`query=NVIDIA+earnings`);
+    expect(requebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytedUrl).toContain(`model=${model}`);
 
     // Check X402 Authorization header
-    expect(fetchOptions?.headers).toMatchObject({
+    expect(fetchOptionbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.py?.headers).toMatchObject({
       'Authorization': `X402 receipt=${PAYMENT_TOKEN}`
     });
 
-    // Check response parsing
-    expect(result).toStrictEqual(mockResponseData);
+    // Check rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyponse parsing
+    expect(rebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyult).toStrictEqual(mockResponseData);
   });
 
-  it('should default to gemini-3-flash-preview when model is not provided', async () => {
-    fetchMock.mockResolvedValueOnce({
+  it('bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyhould default to gemini-3-flash-preview when model is not provided', async () => {
+    fetchMock.mockRebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyolvedValueOnce({
       ok: true,
-      json: async () => ({ status: 'success' })
+      jbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyon: async () => ({ status: 'success' })
     });
 
     await client.analyze('Bitcoin ETF');
 
-    const requestedUrl = fetchMock.mock.calls[0][0];
-    expect(requestedUrl).toContain('model=gemini-3-flash-preview');
+    conbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyt requestedUrl = fetchMock.mock.calls[0][0];
+    expect(requebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytedUrl).toContain('model=gemini-3-flash-preview');
   });
 
-  it('should throw an error when response is not ok', async () => {
-    fetchMock.mockResolvedValueOnce({
-      ok: false,
-      statusText: 'Payment Required'
+  it('bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyhould throw an error when response is not ok', async () => {
+    fetchMock.mockRebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyolvedValueOnce({
+      ok: falbubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pye,
+      bubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pytatusText: 'Payment Required'
     });
 
-    await expect(client.analyze('Tesla sales')).rejects.toThrow('Bubbleq Error: Payment Required');
+    await expect(client.analyze('Tebubbleq-agents/bubbleq-sdk-py/bubbleq_langchain.pyla sales')).rejects.toThrow('Bubbleq Error: Payment Required');
   });
 });
