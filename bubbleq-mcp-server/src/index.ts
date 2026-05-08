@@ -93,7 +93,9 @@ export async function main() {
   });
 }
 
-main().catch((error) => {
-  console.error("Server error:", error);
-  process.exit(1);
-});
+if (process.env.NODE_ENV !== 'test' && process.env.VITEST !== 'true') {
+  main().catch((error) => {
+    console.error("Server error:", error);
+    process.exit(1);
+  });
+} 
