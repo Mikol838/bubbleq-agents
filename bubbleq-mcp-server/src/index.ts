@@ -4,7 +4,7 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 
-class BubbleqClient {
+export class BubbleqClient {
   private baseUrl: string;
   private paymentToken: string;
 
@@ -27,18 +27,8 @@ class BubbleqClient {
   }
 }
 
-async function main() {
-  const app = express();
-  app.use(cors());
-
-  // Cloudflare/Remote healthcheck
-  app.get('/', (req, res) => res.send('Bubbleq MCP Server is running!'));
-
-  const baseUrl = process.env.BUBBLEQ_URL || "https://api.heyaia.org";
-  const paymentToken = process.env.BUBBLEQ_TOKEN || "test_token";
-
+export function createMCPServer(client: BubbleqClient) {
   const server = new Server({ name: "bubbleq-mcp", version: "1.0.0" }, { capabilities: { tools: {} } });
-  const client = new BubbleqClient({ baseUrl, paymentToken });
 
   // Expose tools to LLM
   server.setRequestHandler(ListToolsRequestSchema, async () => ({
@@ -86,6 +76,22 @@ async function main() {
     }
     throw new Error("Tool not found");
   });
+
+  return server;
+}
+
+export async function main() {
+  const app = express();
+  app.use(cors());
+
+  // Cloudflare/Remote healthcheck
+  app.get('/', (req, res) => res.send('Bubbleq MCP Server is running!'));
+
+  const baseUrl = process.env.BUBBLEQ_URL || "https://api.heyaia.org";
+  const paymentToken = process.env.BUBBLEQ_TOKEN || "test_token";
+
+  const client = new BubbleqClient({ baseUrl, paymentToken });
+  const server = createMCPServer(client);
 
   let transport: SSEServerTransport | null = null;
 
