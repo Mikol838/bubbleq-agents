@@ -15,7 +15,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "vitest run",
+    "test": "npm run build:deps && vitest run",
+    "build:deps": "cd ../bubbleq-sdk-ts && npm install && npm run build",
     "test:watch": "vitest"
   },
   "dependencies": {
