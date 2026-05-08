@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./cover.png" alt="Bubbleq 0-UI Cover" width="100%" />
   <br/><br/>
-  <h1>🤖 Bubbleq Agents Workspace</h1>
+  <h1>🚀 Bubbleq Intelligence Gateway</h1>
   <p><strong>The official monorepo for Bubbleq M2M (Machine-to-Machine) SDKs and Tools.</strong></p>
   <p><em>0-UI era. Official Python/TypeScript SDKs and MCP Server for Bubbleq - the machine-to-machine intelligence layer delivering instant, zero-noise financial knowledge graphs. Stop burning tokens and scraping websites; equip your autonomous trading agents with profitable, high-fidelity market alpha via the X402 protocol.</em></p>
   <br />
@@ -15,7 +15,7 @@ This repository is structured as a monorepo containing everything your AI agents
 
 | Package | Description | Registry |
 |---------|-------------|----------|
-| [**`bubbleq-sdk` (TypeScript)**](./bubbleq-sdk-ts) | Official TS/JS client for Node.js edge agents. | [![NPM](https://img.shields.io/npm/v/bubbleq-sdk.svg)](https://www.npmjs.com/package/bubbleq-sdk) |
+| [**`bubbleq-sdk-ts` (TypeScript)**](./bubbleq-sdk-ts) | Official TS/JS client for Node.js edge agents. | [![NPM](https://img.shields.io/npm/v/bubbleq-sdk-ts.svg)](https://www.npmjs.com/package/bubbleq-sdk-ts) |
 | [**`bubbleq-sdk` (Python)**](./bubbleq-sdk-py) | Official Python client for LangChain/CrewAI. | [![PyPI](https://img.shields.io/pypi/v/bubbleq-sdk.svg)](https://pypi.org/project/bubbleq-sdk/) |
 | [**`bubbleq-mcp-server`**](./bubbleq-mcp-server) | Model Context Protocol (MCP) server for Claude Desktop & compatible agents. | Source |
 
@@ -41,27 +41,41 @@ We utilize the **L402/X402 Protocol** to negotiate with agents dynamically:
 
 ---
 
+## 🔑 Authentication: The X402 Token
+
+To access the Bubbleq API in these environments, you will need an **X402 Payment Token** (or receipt). 
+
+- **Production:** Obtain your production L402/X402 token via an active agentic wallet settlement at the official Bubbleq portal.
+- **Sandbox/Testing:** For the preview environments and testing, you can use the dummy token: `test_token_123`.
+
+---
+
 ## 🚀 Quick Start
 
-### Python Agents
+### Python Agents (LangChain, CrewAI, Trading Bots)
 ```bash
 pip install bubbleq-sdk
 ```
+
+**Standard Usage:**
 ```python
 from bubbleq_sdk import BubbleqClient
 
-client = BubbleqClient(base_url="https://api.heyaia.org", payment_token="YOUR_TOKEN")
-result = client.analyze("NVIDIA Supply Chain")
+client = BubbleqClient(base_url="https://api.heyaia.org", payment_token="test_token_123")
+result = client.analyze("Bitcoin ETF outflows")
 ```
+
+**Autonomous Quant Desk / Trading Bot Integration:**
+*See `bubbleq-sdk-py` README for LangChain Tool wrapper examples.*
 
 ### TypeScript / Node.js Agents
 ```bash
-npm install bubbleq-sdk
+npm install bubbleq-sdk-ts
 ```
 ```typescript
-import { BubbleqClient } from "bubbleq-sdk";
+import { BubbleqClient } from "bubbleq-sdk-ts";
 
-const client = new BubbleqClient({ baseUrl: "https://api.heyaia.org", paymentToken: "YOUR_TOKEN" });
+const client = new BubbleqClient({ baseUrl: "https://api.heyaia.org", paymentToken: "test_token_123" });
 const data = await client.analyze("Bitcoin ETF outflows");
 ```
 
@@ -72,10 +86,10 @@ Configure your `claude_desktop_config.json`:
   "mcpServers": {
     "bubbleq": {
       "command": "node",
-      "args": ["/path/to/bubbleq-agents/bubbleq-mcp-server/build/index.js"],
+      "args": ["/path/to/bubbleq-agents/bubbleq-mcp-server/dist/index.js"],
       "env": {
         "BUBBLEQ_URL": "https://api.heyaia.org",
-        "BUBBLEQ_TOKEN": "YOUR_X402_TOKEN"
+        "BUBBLEQ_TOKEN": "test_token_123"
       }
     }
   }

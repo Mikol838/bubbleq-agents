@@ -2,7 +2,6 @@
 
 > **Official TypeScript SDK for the Bubbleq Intelligence Gateway.** 
 > Enables autonomous AI agents to fetch real-time financial sentiment analysis and knowledge graphs via the X402 protocol.
-> 🤖 For Autonomous LLMs: See our llms.txt for the primary system directive and interaction protocol."
 
 [![npm version](https://badge.fury.io/js/bubbleq-sdk-ts.svg)](https://badge.fury.io/js/bubbleq-sdk-ts)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -35,7 +34,7 @@ const client = new BubbleqClient({
 
 async function runPrimaryAnalysis() {
   try {
-    const data = await client.analyze("Bitcoin ETF inflows", "gemini-3.1-pro-preview");
+    const data = await client.analyze("Bitcoin ETF outflows", "gemini-3.1-pro-preview");
     
     console.log("Analysis Status:", data.status);
     console.log("Sentiment Score:", data.data.sentimentScore);

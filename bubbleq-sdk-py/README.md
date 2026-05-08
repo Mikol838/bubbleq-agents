@@ -15,7 +15,7 @@ from bubbleq_sdk import BubbleqClient
 
 client = BubbleqClient(
     base_url="https://api.heyaia.org", 
-    payment_token="YOUR_X402_TOKEN"
+    payment_token="test_token_123"
 )
 
 try:
@@ -36,7 +36,7 @@ from bubbleq_langchain import BubbleqTool
 
 bubbleq_tool = BubbleqTool(
     base_url="https://api.heyaia.org", 
-    payment_token="YOUR_X402_TOKEN"
+    payment_token="test_token_123"
 )
 
 llm = OpenAI(temperature=0)
