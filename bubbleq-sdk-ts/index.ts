@@ -8,7 +8,7 @@ export class BubbleqClient {
   }
 
   async analyze(query: string, model: 'gemini-3.1-pro-preview' | 'gemini-3-flash-preview' = 'gemini-3-flash-preview') {
-    const url = new URL("/bubbleq/api/analyze", this.baseUrl);
+    const url = new URL("/api/agent/analyze", this.baseUrl);
     url.searchParams.set("query", query);
     url.searchParams.set("model", model);
     

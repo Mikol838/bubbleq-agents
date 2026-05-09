@@ -22,7 +22,7 @@ export function createMCPServer(client: BubbleqClient) {
           },
           model: { 
             type: "string", 
-            enum: ["semini-3-flash-preview", "gemini-3.1-pro-preview"],
+            enum: ["gemini-3-flash-preview", "gemini-3.1-pro-preview"],
             description: "Optionally specify the reasoning model."
           }
         },
